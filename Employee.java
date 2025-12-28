@@ -1,17 +1,39 @@
-public class Employee extends Human {
+package model;
 
-    public String job;
-    public float salary;
+import interfaces.IStudy;
+import interfaces.IWork;
 
-    public static String company = "MyCompany";
+public class Employee extends Human implements IStudy, IWork {
 
-    public Employee(int age, String name, boolean male, String job, float salary) {
-        super(age, name, male);
-        this.job = job;
+    private double salary;
+
+    public Employee(String name, int age, double salary) {
+        super(name, age);
         this.salary = salary;
     }
 
-    public String role() {
-        return "Employee";
+    @Override
+    public void work() {
+        System.out.println(name + " is working.");
+    }
+
+    @Override
+    public double getSalary() {
+        return salary;
+    }
+
+    @Override
+    public void study() {
+        System.out.println(name + " is learning new skills.");
+    }
+
+    @Override
+    public int getStudyHours() {
+        return 2;
+    }
+
+    @Override
+    public void introduce() {
+        System.out.println("Hi, I'm an employee. My name is " + name);
     }
 }

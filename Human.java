@@ -1,20 +1,22 @@
-public class Human {
+package model;
 
-    public int age;
-    public String name;
-    public boolean male;
+public abstract class Human {
 
-    public Human(int age, String name, boolean male) {
-        this.age = age;
+    protected String name;
+    protected int age;
+
+    public Human(String name, int age) {
         this.name = name;
-        this.male = male;
+        this.age = age;
     }
 
-    public void sayHello() {
-        System.out.println("Hi, my name is " + name);
+    public abstract void introduce();
+
+    public String getName() {
+        return name;
     }
 
-    public String role() {
-        return "Human";
+    public int getAge() {
+        return age;
     }
 }
