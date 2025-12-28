@@ -1,16 +1,25 @@
+import model.*;
+import interfaces.*;
+
 public class Main {
     public static void main(String[] args) {
 
-        Human h = new Human(20, "Abylai", true);
-        h.sayHello();
-        System.out.println(h.role());
+        // From class itself
+        Student student = new Student("Alex", 19, "AITU");
 
-        Employee e = new Employee(25, "Aibar", true, "Programmer", 1200);
-        e.sayHello();
-        System.out.println(e.role());
+        // From superclass
+        Human employeeAsHuman = new Employee("John", 30, 250000);
 
-        Student s = new Student(19, "Aruzhan", false, "IT", 3.8f);
-        s.sayHello();
-        System.out.println(s.role());
+        // From interface
+        IWork employeeAsWorker = new Employee("Anna", 28, 300000);
+
+        student.introduce();
+        student.study();
+        System.out.println(student.getUniversity());
+
+        employeeAsHuman.introduce();
+
+        employeeAsWorker.work();
+        System.out.println(employeeAsWorker.getSalary());
     }
 }
